@@ -1,4 +1,4 @@
-import React,{useState}from 'react'
+import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import './Userpage.css'
 import Backimage from'./backimage.jpg'
@@ -17,8 +17,8 @@ const create = (e)=>{
 
   axios.post("https://capstonedb.onrender.com/api/Menu/Create",data)
 
-  .then((response)=>console.log(response.data)
-  .catch((error)=> console.log(error)))
+  .then((response)=>console.log(response.data))
+  .catch(error=> console.log(error))
    
 }
   
@@ -26,7 +26,7 @@ const create = (e)=>{
 <div className='container-fluid'>
 <div className="row">
 <div className="col-sm-3">  
-  <h1 class="menu">User page</h1><hr/>
+  <h1 className="menu">User page</h1><hr/>
   
   </div>
    <div className="col-sm-9">
@@ -34,12 +34,12 @@ const create = (e)=>{
     <form onSubmit={create} className="form">
     <h2>User form</h2>
 
-    <label for="dish">Dish Name *</label><br/>
+    <label type="dish">Dish Name *</label><br/>
     <input type="name" value={dish}required onChange={(e)=>setDish(e.target.value)}/><br/>
 
-    <label for="text"></label> Comment*<br/>
+    <label type="text"></label> Comment*<br/>
      <textarea id="text"  rows="10" cols="50"value={comment}required onChange={(e)=>setComment(e.target.value)}></textarea><br/>
-       <button type="submit" class="btn" onClick={create}>Create</button>
+       <button type="submit" className="btn1" >Create</button>
     
   </form>
     </div>

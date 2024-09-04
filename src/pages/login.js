@@ -1,43 +1,44 @@
+import {useState}from 'react'
 import React from 'react'
-import {useState} from 'react'
-import axios from 'axios'
+import imge1 from'./kitchen.webp'
 import {Link} from 'react-router-dom'
+import './Login.css'
+import  axios  from 'axios'
+
 
 export default function Login() {
-  const [Name,setName]=useState()
-   const [Email,setEmail]=useState()
-  const [Password,setPassword]=useState()
+const [Email,setEmail]=useState(null)
+const [Password,setPassword]=useState(null)
+ 
+const create = (e)=>{ 
+  e.preventDefault();
+  const data={
+  "Email":Email,
+  "Password":"Password"
 
-  const create=(e)=>{
-    e.preventDefault()
-    axios.post('https://capstonedb.onrender.com/api/User/Create',{Name,Email,Password})
+  };
+  axios.post("https://capstonedb.onrender.com/api/User/Create",data)
+
+  .then((response)=>console.log(response.data))
+  .catch(err=> console.log(err))
    
-    .then((response)=>console.log(response))
-    .catch(err=>console.log(err))
 }
-  
   return (
+    <div>
+   <nav>
+      <form onSubmit={create} className='login'>
+      <span>welcome Indian food</span>
+      <h1>Create your account</h1><br></br>
     
-    
-    <div className=''>
-<form onSubmit={create}>
-<h1>Create Account</h1>
-<p>
-  <label type='name' >Name:</label>
-  <input type='name' className='name' size={25}value={Name}required onChange={(e)=>setName(e.target.value)}></input>
-</p>
-<p>
-  <label type='email' >Email:</label>
-  <input type='email' className='email' size={25}value={Email}required onChange={(e)=>setEmail(e.target.value)}></input>
-</p>
-<p>
-  <label type='password' >password:</label>
-  <input type='password'  className='password'  size={25}value={Password}required onChange={(e)=>setPassword(e.target.value)}></input>
-</p>
-
-<Link to={"/home"}> login</Link>
-</form>
-
+        <label type="email" className='email'>email:</label>
+        <input type='email' className='email'value={Email} required onChange={(e)=>setEmail(e.target.value)}></input><br></br>
+        <label type="password"className='password'>password:</label>
+        <input type='password'className='password'value={Password} required onChange={(e)=>setPassword(e.target.value)}></input><br></br>     
+        <button type="submit"className='sub'
+        ><Link  to={"/Login"} >Login</Link></button>
+          </form>
+          </nav>
+        <img src={imge1} width={"90%"} height={"660px"} className='backimg' alt='img'></img>
     </div>
   )
 }

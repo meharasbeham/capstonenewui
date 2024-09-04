@@ -9,8 +9,8 @@ export default function Home() {
     <div>
 <ul>
   <img src={imge2} alt={"foodimg"} width={"100px"} className='food'></img>
-  <li style={{float:"right"}}><Link to={"/Home"}>Login</Link></li>
-  <li style={{float:"right"}}><Link to={"/Home"}>singin</Link></li>
+  <li style={{float:"right"}}><Link to={"/Login"}>Login</Link></li>
+  <li style={{float:"right"}}><Link to={"/Logout"}>Logout</Link></li>
   <li style={{float:"left"}}><Link to={"/Home"}>Home</Link></li>
   <li style={{float:"left"}}><Link to={"/Menu"}>Menu</Link></li>
   <li style={{float:"left"}}><Link to={"/Userpage"}>Userpage</Link></li>

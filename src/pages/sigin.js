@@ -1,7 +1,7 @@
 import React,{useState}from 'react'
 import imge1 from'./kitchen.webp'
 import {Link} from 'react-router-dom'
-import "../pages/sigin.css"
+import "./Sigin.css"
 import  axios  from 'axios'
 
 
@@ -25,7 +25,7 @@ const create = (e)=>{
 }
   return (
     <div>
-   
+   <nav>
       <form onSubmit={create}className='sigin'>
       <span>welcome Indian food</span>
       <h1>Create your account</h1><br></br>
@@ -38,6 +38,7 @@ const create = (e)=>{
         <input type='password'className='password'value={Password}required onChange={(e)=>setPassword(e.target.value)}></input><br></br>     
         <button type="submit"className='sub'><Link to={"/Home"}>Sigin</Link></button>
           </form>
+          </nav>
         <img src={imge1} width={"90%"} height={"660px"} className='backimg' alt='img'></img>
     </div>
   )
